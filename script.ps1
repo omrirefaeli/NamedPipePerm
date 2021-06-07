@@ -5,7 +5,7 @@ $delimeter = ","
 
 $pipe_cont =  & $pipelist_path /accepteula| select -Skip 7
 $pipes = New-Object System.Collections.ArrayList
-$pipe_cont[0..9] | %{
+$pipe_cont | %{
 $_ -match "(.+?)\s+(.+?)\s+?(.*)\s" | out-null
 $single = New-Object System.Object
 $single | Add-Member -MemberType NoteProperty -Name "Pipe_Name" -Value $Matches[1].Trim()
